@@ -38,7 +38,7 @@ public class SecurityConfig {
 	SecurityFilterChain securityFilterChain(HttpSecurity httpsecurity) throws Exception {
 	return httpsecurity.csrf(csrf-> csrf.disable())         // CSRF -> Cross Site Request Forgery.
 			           .authorizeHttpRequests(auth->auth    // We take the request
-			           .requestMatchers("/users/register") // Checks with our URL Endpoint 
+			           .requestMatchers("/users/register","/users/{userId}") // Checks with our URL Endpoint 
 			           .permitAll()                         // allows /users/register
 			           .anyRequest()                         
 			           .authenticated())                    // any other URL it will authenticate 
